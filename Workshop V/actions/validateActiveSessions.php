@@ -15,7 +15,7 @@ $horas = isset($argv[1]) ? (int)$argv[1] : 24;
 $sql = "SELECT Email, Last_login_datetime FROM logins_user WHERE Status = 1";
 $result = $conn->query($sql);
 
-$foundInactive = false; // Variable para rastrear si se encontraron usuarios inactivos
+$foundInactive = false; 
 
 if ($result->num_rows > 0) {
     $now = new DateTime();
@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
         
         if ($hours > $horas) {
             echo "El usuario " . $row["Email"] . " tiene más de $horas horas desde el último inicio de sesión.\n";
-            $foundInactive = true; // Se encontró al menos un usuario inactivo
+            $foundInactive = true;
         }
     }
 
